@@ -13,9 +13,16 @@ window.addEventListener("load",
 function message(e)
 {
   var textbox = document.getElementById("caesar");
-  var code= caesar(textbox.value, 13);
+  var shift = document.getElementById("caesar3");
+  var move=parseInt(shift.value);
+  if(isNaN(move))
+  {
+    alert("value is not a number");
+    return;
+  }
+  var code= caesar(textbox.value, move);
   textbox.value=code;
-  var encrypt= julius(code,13);
+  var encrypt= julius(code, move);
   var textboxes = document.getElementById("caesar2");
   textboxes.value= encrypt;
 }
